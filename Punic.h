@@ -5,8 +5,6 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
-#include <map>
-#include <vector>
 #include "colors.h"
 
 
@@ -56,5 +54,6 @@ private:
         else {
             std::cout << YELLOW << "Tests passed with " << RED << failures << YELLOW << " fail(s)." << RESET << std::endl;
         }
-}
+    }
+};
 #endif
