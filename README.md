@@ -1,6 +1,6 @@
 # Punic
 
-Punic is a lightweight and user-friendly unit testing framework for C++. It provides developers with an easy and efficient way to write and execute tests for their C++ code. Automated testing is crucial for ensuring code correctness, and C++Unit aims to simplify the process with its intuitive and flexible features.
+Punic is a header-only lightweight and user-friendly unit testing framework for C++. It provides developers with an easy and efficient way to write and execute tests for their C++ code. Automated testing is crucial for ensuring code correctness, and C++Unit aims to simplify the process with its intuitive and flexible features.
 
 ## Features
 
@@ -26,7 +26,8 @@ bool isEven(int number) {
 
 int main() {
     Punic p;
-
+    bool failed = false
+    p.whenfailed([]() { failed = true ;})
     // Test cases
     p.assert(true, []() { return isEven(2); }, "Even");
     p.assert(false,[]() { return isEven(7); }, "Odd");
@@ -37,8 +38,29 @@ int main() {
 ```
 
 When you run your test program, the test results will be displayed in the console output. Each test case will be listed with its corresponding name, status (PASSED or FAILED), and additional information if applicable (e.g., expected and actual values).
+Here is a refrence:
 
- 
+## Refrence
+
+The Punic class is the central component of the Punic framework. It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
+
+- bool assert(auto assertion, Function function, std::string named = "Unnamed")
+This method defines a test case. 
+
+- void exitOnFailure(bool on_exit)
+This method configures whether the program should exit immediately upon encountering a test failure. By default, this option is disabled.
+
+- void whenFailed(std::function<void()> action)
+This method sets a callback function to be executed when a test case fails.
+
+- void whenPassed(std::function<void()> action)
+This method sets a callback function to be executed when a test case passes.
+
+- void whenAllFailed(std::function<void()> action)
+This method sets a callback function to be executed when all test cases fail.
+
+- void whenAllPassed(std::function<void()> action)
+This method sets a callback function to be executed when all test cases pass.
 
 ## Contributions
 
