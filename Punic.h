@@ -33,10 +33,10 @@ public:
         summary();
     }
 
-    template <typename Function>
-    bool assert(auto assertion, Function function, std::string named = "Unnamed") {
+    template <class T, class Function>
+    bool assert(T assertion, Function function, std::string named = "Unnamed") {
         tests += 1;
-        auto result = function();
+        T result = function();
         bool testResult = result == assertion;
 
         std::cout << BOLD << "Test <" << YELLOW << named << WHITE << "> #" << tests << " : " << (testResult ? GREEN : RED) << (testResult ? "PASSED" : "FAILED") << RESET << std::endl;

@@ -18,21 +18,22 @@ To start using Punic, simply clone `Punic.h` and integrate the framework into yo
 Here's an example of how to write tests using Punic:
 
 ```cpp
-#include "Punic.h"
+#include "Punic.hpp"
 #include <string>
 #include <iostream>
 
-bool isEven(int number) {
-    return number % 2 == 0;
-}
+auto bool_fun   = []() { return false; };
+auto string_fun = []() { return std::string("Punic"); };
+auto int_fun    = []() { return 45; };
+
 
 int main() {
     Punic p;
     
     // Test cases
-    p.assert(true, []() { return isEven(2); }, "Even");
-    p.assert(false,[]() { return isEven(7); }, "Odd");
-    p.assert(true, []() { return isEven(0); }, "Zero");
+    p.assert<bool>(false, bool_fun, "Even");
+    p.assert<std::string>("Punic",string_fun, "string");
+    p.assert<int>(45, int_fun , "Zero");
 
     return 0;
 }
@@ -45,7 +46,7 @@ Here is a refrence:
 
 The Punic class is the central component of the Punic framework. It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
 
-- bool assert(auto assertion, Function function, std::string named = "Unnamed")
+- bool assert(T assertion, Function function, std::string named = "Unnamed")
 This method defines a test case. 
 
 - void exitOnFailure(bool on_exit)
