@@ -29,7 +29,7 @@ int main() {
 
     // Test cases
     p.assert(true, []() { return isEven(2); }, "Even");
-    p.assert(false, [](){ return isEven(7); }, "Odd");
+    p.assert(false,[]() { return isEven(7); }, "Odd");
     p.assert(true, []() { return isEven(0); }, "Zero");
 
     return 0;
