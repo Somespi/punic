@@ -19,6 +19,8 @@ Here's an example of how to write tests using Punic:
 
 ```cpp
 #include "Punic.h"
+#include <string>
+#include <iostream>
 
 bool isEven(int number) {
     return number % 2 == 0;
@@ -26,8 +28,7 @@ bool isEven(int number) {
 
 int main() {
     Punic p;
-    bool failed = false
-    p.whenfailed([]() { failed = true ;})
+    
     // Test cases
     p.assert(true, []() { return isEven(2); }, "Even");
     p.assert(false,[]() { return isEven(7); }, "Odd");
