@@ -46,22 +46,22 @@ Here is a refrence:
 
 The Punic class is the central component of the Punic framework. It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
 
-- bool assert(T assertion, Function function, std::string named = "Unnamed")
+- `bool assert(T assertion, std::function<T> function, std::string named = "Unnamed")`
 This method defines a test case. 
 
-- void exitOnFailure(bool on_exit)
+- `void exitOnFailure(bool on_exit)`
 This method configures whether the program should exit immediately upon encountering a test failure. By default, this option is disabled.
 
-- void whenFailed(std::function<void()> action)
+- `void whenFailed(std::function<void()> action)`
 This method sets a callback function to be executed when a test case fails.
 
-- void whenPassed(std::function<void()> action)
+- `void whenPassed(std::function<void()> action)`
 This method sets a callback function to be executed when a test case passes.
 
-- void whenAllFailed(std::function<void()> action)
+- `void whenAllFailed(std::function<void()> action)`
 This method sets a callback function to be executed when all test cases fail.
 
-- void whenAllPassed(std::function<void()> action)
+- `void whenAllPassed(std::function<void()> action)`
 This method sets a callback function to be executed when all test cases pass.
 
 ## Contributions
