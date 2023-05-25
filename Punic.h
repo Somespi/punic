@@ -33,8 +33,8 @@ public:
         summary();
     }
 
-    template <class T, class Function>
-    bool assert(T assertion, Function function, std::string named = "Unnamed") {
+    template <class T>
+    bool assert(T assertion, std::function<T()> function, std::string named = "Unnamed") {
         tests += 1;
         T result = function();
         bool testResult = result == assertion;
