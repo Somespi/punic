@@ -1,6 +1,6 @@
 # Punic
 
-Punic is a header-only lightweight and user-friendly unit testing framework for C++. It provides developers with an easy and efficient way to write and execute tests for their C++ code. Automated testing is crucial for ensuring code correctness, and C++Unit aims to simplify the process with its intuitive and flexible features.
+Punic is a header-only lightweight and user-friendly unit testing framework for C++. It provides developers with an easy and efficient way to write and execute tests for their C++ code. Automated testing is crucial for ensuring code correctness, and Punic aims to simplify the process with its intuitive and flexible features.
 
 ## Features
 
