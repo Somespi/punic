@@ -1,14 +1,12 @@
 #ifndef PUNIC_H
 #define PUNIC_H
 
-
 #include <string>
 #include <iostream>
 #include <cstdlib>
 #include "colors.h"
 
-
-class  Punic {
+class Punic {
 private:
     int tests = 0;
     int failures = 0;
@@ -20,26 +18,25 @@ public:
     }
 
     template <typename Function>
-    bool assert(auto assertion, Function func, std::string named = "Unnamed") {
+    bool assert(auto assertion, Function function, std::string named = "Unnamed") {
         tests += 1;
-        auto returns = func();
-        bool result = returns == assertion;
+        auto result = function();
+        bool testResult = result == assertion;
 
-        std::cout << BOLD << "Test <" << YELLOW << named << WHITE << "> #" << tests << " : " << (result ? GREEN : RED) << (result ? "PASSED" : "FAILED") << RESET << std::endl;
+        std::cout << BOLD << "Test <" << YELLOW << named << WHITE << "> #" << tests << " : " << (testResult ? GREEN : RED) << (testResult ? "PASSED" : "FAILED") << RESET << std::endl;
 
-        if (!result) {
+        if (!testResult) {
             failures += 1;
             std::cout << "  - " << YELLOW << "Expected: " << MAGENTA << assertion << RESET << std::endl;
-            std::cout << "  - " << YELLOW << "Actual:   " << MAGENTA << returns << RESET << std::endl;
-
+            std::cout << "  - " << YELLOW << "Actual:   " << MAGENTA << result << RESET << std::endl;
         }
 
-        if (!result && exiting) {
+        if (!testResult && exiting) {
             std::cerr << RED << "Test failure. Exiting the program." << RESET << std::endl;
             std::exit(1);
         }
 
-        return result;
+        return testResult;
     }
 
     void exitFailure(bool on_exit) {
@@ -56,4 +53,6 @@ private:
         }
     }
 };
+
 #endif
+
