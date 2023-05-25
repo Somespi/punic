@@ -14,7 +14,7 @@ Punic is a header-only lightweight and user-friendly unit testing framework for 
 
 ## Getting Started
 
-To start using Punic, simply clone the repository and integrate the framework into your C++ project.
+To start using Punic, simply clone `Punic.h` and integrate the framework into your C++ project.
 Here's an example of how to write tests using Punic:
 
 ```cpp
