@@ -8,7 +8,7 @@ Punic is a header-only lightweight and user-friendly unit testing framework for 
 
 - **Simple Assertion:** The framework provides an `assert` function that allows you to make assertions on the expected and actual values of your code. It supports various data types and automatically generates informative output.
 
-- **Output Formatting:** The output of the test results is formatted in a clear and readable manner. Punic supports colored outputs, making it easier to distinguish between passed and failed tests. It also provides detailed information about assertion failures, including the expected and actual values.
+- **Output Formatting:** The output of the test results is formatted in a clear and readable manner making it easier to distinguish between passed and failed tests. It also provides detailed information about assertion failures, including the expected and actual values.
 
 - **Customizable:** Punic is designed to be flexible and customizable. You can extend its functionality according to your specific requirements. For example, you can add additional output formatting options or integrate it with other testing tools or frameworks.
 
@@ -44,7 +44,7 @@ Here is a refrence:
 
 ## Refrence
 
-The Punic class is the central component of the Punic framework. It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
+The Punic class is the central component of Punic . It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
 
 - `bool assert(T assertion, std::function<T> function, std::string named = "Unnamed")`
 This method defines a test case. 
