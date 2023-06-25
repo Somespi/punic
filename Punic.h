@@ -1,18 +1,6 @@
 #ifndef PUNIC_H
 #define PUNIC_H
 
-#define RESET   "\033[0m"
-#define BLACK   "\033[30m"      /* Black */
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
-#define WHITE   "\033[37m"      /* White */
-#define BOLD "\033[1m"          /* Bold */
-
-
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -39,12 +27,12 @@ public:
         T result = function();
         bool testResult = result == assertion;
 
-        std::cout << BOLD << "Test <" << YELLOW << named << WHITE << "> #" << tests << " : " << (testResult ? GREEN : RED) << (testResult ? "PASSED" : "FAILED") << RESET << std::endl;
+        std::cout << "Test <" << named << "> #" << tests << " : " << (testResult ? "PASSED" : "FAILED") << RESET << std::endl;
 
         if (!testResult) {
             failures += 1;
-            std::cout << "  - " << YELLOW << "Expected: " << MAGENTA << assertion << RESET << std::endl;
-            std::cout << "  - " << YELLOW << "Actual:   " << MAGENTA << result << RESET << std::endl;
+            std::cout << "  - " << "Expected: " << assertion << std::endl;
+            std::cout << "  - " << YELLOW << "Actual:   " <<  result <<  std::endl;
             if (failedAction)
                 failedAction();
         } else {
@@ -53,7 +41,7 @@ public:
         }
 
         if (!testResult && exiting) {
-            std::cerr << RED << "Test failure. Exiting the program." << RESET << std::endl;
+            std::cerr << "Test failure. Exiting the program." << std::endl;
             std::exit(1);
         }
 
@@ -83,12 +71,12 @@ public:
 private:
     void summary() {
         if (failures == 0) {
-            std::cout << GREEN << "All tests passed." << RESET << std::endl;
+            std::cout << "All tests passed." << std::endl;
             if (passedAllAction)
                 passedAllAction();
         }
         else {
-            std::cout << YELLOW << "Tests passed with " << RED << failures << YELLOW << " fail(s)." << RESET << std::endl;
+            std::cout << "Tests passed with " << failures << " fail(s)." << std::endl;
         } 
         if(failures == tests) 
             if (faliedAllAction)
