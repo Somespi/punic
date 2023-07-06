@@ -27,12 +27,12 @@ public:
         T result = function();
         bool testResult = result == assertion;
 
-        std::cout << "Test <" << named << "> #" << tests << " : " << (testResult ? "PASSED" : "FAILED") << RESET << std::endl;
+        std::cout << "Test <" << named << "> #" << tests << " : " << (testResult ? "PASSED" : "FAILED") << std::endl;
 
         if (!testResult) {
             failures += 1;
             std::cout << "  - " << "Expected: " << assertion << std::endl;
-            std::cout << "  - " << YELLOW << "Actual:   " <<  result <<  std::endl;
+            std::cout << "  - " << "Actual:   " << result << std::endl;
             if (failedAction)
                 failedAction();
         } else {
@@ -48,42 +48,20 @@ public:
         return testResult;
     }
 
-    void exitOnFailure(bool on_exit) {
-        exiting = on_exit;
-    }
+    void exitOnFailure(bool on_exit);
 
-    void whenFailed(std::function<void()> action) {
-        failedAction = action;
-    }
+    void whenFailed(std::function<void()> action);
 
-    void whenPassed(std::function<void()> action) {
-        passedAction = action;
-    }
+    void whenPassed(std::function<void()> action);
 
-    void whenAllFailed(std::function<void()> action) {
-        faliedAllAction = action;
-    }
+    void whenAllFailed(std::function<void()> action);
 
-    void whenAllPassed(std::function<void()> action) {
-        passedAllAction = action;
-    }
+    void whenAllPassed(std::function<void()> action);
 
 private:
-    void summary() {
-        if (failures == 0) {
-            std::cout << "All tests passed." << std::endl;
-            if (passedAllAction)
-                passedAllAction();
-        }
-        else {
-            std::cout << "Tests passed with " << failures << " fail(s)." << std::endl;
-        } 
-        if(failures == tests) 
-            if (faliedAllAction)
-                faliedAllAction();
-        
-    }
+    void summary();
 };
+
 
 #endif
 

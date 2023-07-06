@@ -1,73 +1,48 @@
 # Punic
 
-Punic is a header-only lightweight and user-friendly unit testing framework for C++. It provides developers with an easy and efficient way to write and execute tests for their C++ code. Automated testing is crucial for ensuring code correctness, and Punic aims to simplify the process with its intuitive and flexible features.
+Punic is a lightweight and user-friendly unit testing framework for Python. It provides an easy and efficient way to write and execute tests for your Python code.
 
 ## Features
 
-- **Easy Integration:** Punic can be easily integrated into your C++ projects, allowing you to seamlessly incorporate unit tests into your development workflow.
+- **Easy Integration:** Punic can be easily integrated into your Python projects.
 
-- **Simple Assertion:** The framework provides an `assert` function that allows you to make assertions on the expected and actual values of your code. It supports various data types and automatically generates informative output.
+- **Simple Assertion:** The framework provides an `assert_` method for making assertions on expected and actual values.
 
-- **Output Formatting:** The output of the test results is formatted in a clear and readable manner making it easier to distinguish between passed and failed tests. It also provides detailed information about assertion failures, including the expected and actual values.
+- **Output Formatting:** Test results are displayed in a clear and readable format.
 
-- **Customizable:** Punic is designed to be flexible and customizable. You can extend its functionality according to your specific requirements. For example, you can add additional output formatting options or integrate it with other testing tools or frameworks.
+- **Customizable:** Punic is flexible and customizable to suit your specific requirements.
 
 ## Getting Started
 
-To start using Punic, simply clone `Punic.h` and integrate the framework into your C++ project.
-Here's an example of how to write tests using Punic:
+1. Install Punic: `pip install punic`
 
-```cpp
-#include "Punic.hpp"
-#include <string>
-#include <iostream>
+2. Write your tests using the `assert_` method:
 
-auto bool_fun   = []() { return false; };
-auto string_fun = []() { return std::string("Punic"); };
-auto int_fun    = []() { return 45; };
+```python
+from punic import Punic
+
+p = Punic()
+p.assert_(4, lambda: 2 + 2, "Addition")
+
+``` 
+
+3. Run your test program.
 
 
-int main() {
-    Punic p;
-    
-    // Test cases
-    p.assert<bool>(false, bool_fun, "Even");
-    p.assert<std::string>("Punic",string_fun, "string");
-    p.assert<int>(45, int_fun , "Zero");
+## Reference
 
-    return 0;
-}
-```
+The Punic class provides methods for defining and executing tests, configuring behavior, and callbacks:
 
-When you run your test program, the test results will be displayed in the console output. Each test case will be listed with its corresponding name, status (PASSED or FAILED), and additional information if applicable (e.g., expected and actual values).
-Here is a refrence:
+`assert_(assertion, function, named="Unnamed")`: Defines a test case.
 
-## Refrence
+`exit_on_failure(on_exit)`: Configures whether the program should exit on a test failure.
 
-The Punic class is the central component of Punic . It provides methods for defining and executing tests, as well as configuring test behavior and callbacks.
+`when_failed(action)`: Sets a callback function to be executed when a test case fails.
 
-- `bool assert(T assertion, std::function<T> function, std::string named = "Unnamed")`
-This method defines a test case. 
-
-- `void exitOnFailure(bool on_exit)`
-This method configures whether the program should exit immediately upon encountering a test failure. By default, this option is disabled.
-
-- `void whenFailed(std::function<void()> action)`
-This method sets a callback function to be executed when a test case fails.
-
-- `void whenPassed(std::function<void()> action)`
-This method sets a callback function to be executed when a test case passes.
-
-- `void whenAllFailed(std::function<void()> action)`
-This method sets a callback function to be executed when all test cases fail.
-
-- `void whenAllPassed(std::function<void()> action)`
-This method sets a callback function to be executed when all test cases pass.
+`when_passed(action)`: Sets a callback function to be executed when a test case passes.
 
 ## Contributions
-
-Contributions to Punic are welcome! If you find any issues or have suggestions for improvements, please open an issue in the repository. Additionally, feel free to submit pull requests for bug fixes, new features, or enhancements.
+Contributions to Punic are welcome! Please open an issue or submit a pull request for bug fixes, new features, or enhancements.
 
 ## License
-
 Punic is released under the MIT License. See the LICENSE file for more details.
