@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='punic',
+    name='punictest',
     version='0.1.0',
     description='Simple unit testing for python',
     long_description=open('README.md').read(),

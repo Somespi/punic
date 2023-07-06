@@ -14,12 +14,12 @@ Punic is a lightweight and user-friendly unit testing framework for Python. It p
 
 ## Getting Started
 
-1. Install Punic: `pip install punic`
+1. Install Punic: `pip install punictest`
 
 2. Write your tests using the `assert_` method:
 
 ```python
-from punic import Punic
+from punictest import Punic
 
 p = Punic()
 p.assert_(4, lambda: 2 + 2, "Addition")
