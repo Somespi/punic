@@ -19,7 +19,7 @@ Punic is a lightweight and user-friendly unit testing framework for Python. It p
 2. Write your tests using the `assert_` method:
 
 ```python
-from punictest import Punic
+from punic import Punic
 
 p = Punic()
 p.assert_(4, lambda: 2 + 2, "Addition")
